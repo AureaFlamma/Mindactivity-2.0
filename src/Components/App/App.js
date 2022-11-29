@@ -1,10 +1,10 @@
 import Particle from "../ParticleBackground/Particle";
 import "./App.css";
 import React from "react";
+import { Text, extendTheme } from "@chakra-ui/react";
 import MyTimer from "../Timer";
 import Quote from "../Quote Element";
 import Blogpost from "../Blogpost/index";
-
 
 function App() {
   const time = new Date();
@@ -26,7 +26,6 @@ function App() {
     setAffirmations([...data.payload]);
   };
 
-
   const fetchBlogs = async () => {
     const response = await fetch("http://localhost:3001/v1/blogs");
     const data = await response.json();
@@ -45,19 +44,13 @@ function App() {
   console.log(currentBlog);
   console.log(currentBlog.imgageSrc);
 
+  // 2. Update the breakpoints as key-value pairs
+
   return (
     <>
       <Particle />
-      <div className="page-container">
-        <div className="Mindactivity-container">
-          <h1 className="page-title">Mindactivity</h1>
-          <MyTimer expiryTimestamp={time} />
-          <Quote quote={currentItem.content} />
-        </div>
-        <div className="blogpost-container">
-          <Blogpost {...currentBlog} />
-        </div>
-      </div>
+
+      <Text fontSize="6xl">Mindactivity</Text>
     </>
   );
 }
