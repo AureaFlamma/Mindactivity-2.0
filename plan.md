@@ -1,7 +1,10 @@
 1. Refactor for mobile
-2. Add duration selection
-3. Change buttons
-4. Add animation
+2. Clean up:
+   a) global styles in one place
+   b) Fix Particles
+3. Add duration selection
+4. Change buttons
+5. Add animation
 
 ---
 

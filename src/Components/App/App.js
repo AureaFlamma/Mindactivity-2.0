@@ -1,7 +1,7 @@
 import Particle from "../ParticleBackground/Particle";
 import "./App.css";
 import React from "react";
-import { Text, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer";
 import Quote from "../Quote Element";
 import Blogpost from "../Blogpost/index";
@@ -48,9 +48,18 @@ function App() {
 
   return (
     <>
-      <Particle />
-
-      <Text fontSize="6xl">Mindactivity</Text>
+      <ChakraProvider>
+        <Flex
+          justify="center"
+          p="3"
+          color="aliceblue"
+          h="100vh"
+          w="100vw"
+          bgGradient="linear(to-br, #131224, #0c1445, #36306f ) "
+        >
+          <Text fontSize={["3xl", "6xl"]}>Mindactivity</Text>
+        </Flex>
+      </ChakraProvider>
     </>
   );
 }

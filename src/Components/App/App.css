@@ -6,19 +6,8 @@
   margin: 0;
 }
 
-body {
-  background: linear-gradient(
-    132deg,
-    #131224 0%,
-    #0c1445 50%,
-    #5c54a4 90%,
-    #8380a4 100%
-  );
-  background-repeat: no-repeat;
+.global {
   font-family: "Montserrat Alternates", sans-serif;
-  color: aliceblue;
-  height: 100vh;
-  width: 100vw;
 }
 
 /* || Styling of timer component */
