@@ -15,7 +15,10 @@ import {
   SliderMark,
 } from "@chakra-ui/react";
 
-export default function MyTimer({ expiryTimestamp }) {
+export default function MyTimer() {
+  const [sessionLength, setSessionLength] = React.useState(10);
+  const expiryTimestamp = new Date();
+  expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 60 * sessionLength);
   const {
     seconds,
     minutes,
@@ -50,7 +53,18 @@ export default function MyTimer({ expiryTimestamp }) {
         </Text>
       </Flex>
       <Text>X-minute session</Text>
-      <Slider aria-label="slider-ex-1" defaultValue={30}>
+      <Slider
+        aria-label="slider-ex-1"
+        min={5}
+        max={60}
+        defaultValue={10}
+        onChangeEnd={(val) => {
+          console.log("value: ", val);
+          setSessionLength(val);
+          console.log("sessionLength:", sessionLength);
+          restart(expiryTimestamp, false);
+        }}
+      >
         <SliderTrack>
           <SliderFilledTrack />
         </SliderTrack>
