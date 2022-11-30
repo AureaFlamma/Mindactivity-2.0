@@ -11,7 +11,7 @@
 }
 
 /* || Styling of timer component */
-.circle {
+/* .circle {
   border-style: solid;
   border-width: 10px;
   border-color: white;
@@ -49,10 +49,10 @@
   letter-spacing: 1px;
   font-weight: 700;
   font-family: "Montserrat Alternates", sans-serif;
-}
+} */
 
 /* || Styling of buttons upon hover */
-.timerButton:hover {
+/* .timerButton:hover {
   box-shadow: 0px 15px 20px #232f3e;
   color: #fff;
   transform: translateY(-2px);
@@ -65,7 +65,7 @@
 }
 #sound-button:hover {
   background-color: #fba55a;
-}
+} */
 
 /* || Quote component styling: */
 .App-header {

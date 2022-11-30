@@ -2,6 +2,7 @@ import React from "react";
 import { useTimer } from "react-timer-hook";
 import TimerButton from "../TimerButton";
 import musicFunctionality from "../Sound";
+import { Flex, Box, Text, Button, ButtonGroup, VStack } from "@chakra-ui/react";
 
 export default function MyTimer({ expiryTimestamp }) {
   const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
@@ -11,34 +12,26 @@ export default function MyTimer({ expiryTimestamp }) {
   });
 
   return (
-    <div id="global-timer-div">
-      <div className="circle">
-        <span>{minutes}</span>:<span>{seconds}</span>
-      </div>
-      <div id="buttons-div">
-        <TimerButton
-          id="startPauseButton"
-          ariaLabel="startPauseButton"
-          onClick={isRunning ? pause : resume}
-        >
-          {isRunning ? "Pause" : "Start"}
-        </TimerButton>
-        <TimerButton
-          id="resetButton"
-          onClick={() => {
-            // Restarts to 5 minutes timer
-            const time = new Date();
-            time.setSeconds(time.getSeconds() + 300);
-            restart(time, false);
-          }}
-        >
-          Reset
-        </TimerButton>
+    <VStack>
+      <Flex
+        bg="red"
+        w={["200px", "300px"]}
+        h={["200px", "300px"]}
+        border="10px solid white"
+        borderRadius="full"
+        align="center"
+        justify={"center"}
+      >
+        {/* There may be a problem with single/dbl digits. Possibly needs spearste containers */}
+        <Text fontSize={["70px", "105px"]}>
+          {minutes}:{seconds}
+        </Text>
+      </Flex>
 
-        <TimerButton id="sound-button" onClick={musicFunctionality}>
-          Music
-        </TimerButton>
-      </div>
-    </div>
+      <ButtonGroup colorScheme="whiteAlpha" gap="4" variant="solid" size="md">
+        <Button borderRadius="full"></Button>
+        <Button variant="outline" borderRadius="full"></Button>
+      </ButtonGroup>
+    </VStack>
   );
 }
