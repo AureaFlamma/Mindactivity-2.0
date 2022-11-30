@@ -14,11 +14,17 @@ import {
   SliderThumb,
   SliderMark,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function MyTimer() {
-  const [sessionLength, setSessionLength] = React.useState(10);
-  const expiryTimestamp = new Date();
-  expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 60 * sessionLength);
+  // const [sessionLength, setSessionLength] = React.useState(10);
+
+  const [date, setDate] = useState(new Date());
+  const [expiryTimestamp, setExpiryTimestamp] = useState(
+    date.setSeconds(date.getSeconds() + 600)
+  );
+  console.log("this is date: ", date);
+
   const {
     seconds,
     minutes,
@@ -60,8 +66,13 @@ export default function MyTimer() {
         defaultValue={10}
         onChangeEnd={(val) => {
           console.log("value: ", val);
-          setSessionLength(val);
-          console.log("sessionLength:", sessionLength);
+          setExpiryTimestamp(date.setSeconds(date.getSeconds() + 60 * val));
+          console.log(
+            "this is updated date: ",
+            date,
+            "which should be the same as expiryTimestamp:",
+            expiryTimestamp
+          );
           restart(expiryTimestamp, false);
         }}
       >
