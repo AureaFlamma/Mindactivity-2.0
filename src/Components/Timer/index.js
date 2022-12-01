@@ -17,14 +17,15 @@ import {
 import { useState } from "react";
 
 export default function MyTimer() {
-  // const [sessionLength, setSessionLength] = React.useState(10);
+  // To change the default starting timer, change the below. It'll also update the slider anchor:
   const startingMinutes = 10;
+  //A separate state for display minutes is necessary as the timer hook doesn't give us a setMinutes function:
   const [displayMinutes, setDisplayMinutes] = useState(startingMinutes);
+  //This sets the initial timer:
   var date = new Date();
   var expiryTimestamp = date.setSeconds(
     date.getSeconds() + 60 * startingMinutes
   );
-  console.log("ooops, just rerendered");
   const {
     seconds,
     minutes,
@@ -64,6 +65,7 @@ export default function MyTimer() {
         min={5}
         max={60}
         defaultValue={startingMinutes}
+        //This sets the timer to the value selected by user.
         onChangeEnd={(val) => {
           date = new Date();
           expiryTimestamp = date.setSeconds(date.getSeconds() + 60 * val);
