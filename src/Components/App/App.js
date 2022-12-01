@@ -1,10 +1,7 @@
-import Particle from "../ParticleBackground/Particle";
 import "./App.css";
 import React from "react";
 import { ChakraProvider, Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer";
-import Quote from "../Quote Element";
-import Blogpost from "../Blogpost/index";
 
 function App() {
   const time = new Date();
@@ -57,8 +54,12 @@ function App() {
           h="100vh"
           w="100vw"
           bgGradient="linear(to-br, #131224, #0c1445, #36306f ) "
+          gap="10"
+          fontFamily="Oswald, sans-serif"
         >
-          <Text fontSize={["3xl", "6xl"]}>Mindactivity</Text>
+          <Text fontSize={["3xl", "6xl"]} fontWeight="200">
+            Mindactivity
+          </Text>
           <MyTimer />
         </Flex>
       </ChakraProvider>

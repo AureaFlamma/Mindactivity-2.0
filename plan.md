@@ -12,3 +12,17 @@
    d) end time
 
 ---
+
+Styling:
+
+1. Space it out ✅
+2. Font- fix kerning
+3. Text in counter:
+   a) 2-digits on each side
+   b) decrease letter spacing
+4. Slider
+   a) text
+   b) slider itself
+5. button
+6. Background
+7. Resize for mobile
