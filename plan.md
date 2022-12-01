@@ -1,11 +1,14 @@
-1. Refactor for mobile
+1. New features:
+   a) duration selection
+   b) ring animation
+   c) Streak feature:
+   -Auth0
 2. Clean up:
-   a) global styles in one place
-   b) Fix Particles
-3. Add duration selection
-4. Change buttons
-5. Add animation
+   a) Global styles in one place
+3. Stretch features:
+   a) gong selection
+   b) time elapsed
+   c) volume control
+   d) end time
 
 ---
-
-5. Replace blogpost feature with streak counter.=

@@ -50,7 +50,8 @@ function App() {
     <>
       <ChakraProvider>
         <Flex
-          justify="center"
+          align="center"
+          direction={"column"}
           p="3"
           color="aliceblue"
           h="100vh"
@@ -58,6 +59,7 @@ function App() {
           bgGradient="linear(to-br, #131224, #0c1445, #36306f ) "
         >
           <Text fontSize={["3xl", "6xl"]}>Mindactivity</Text>
+          <MyTimer />
         </Flex>
       </ChakraProvider>
     </>
