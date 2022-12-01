@@ -18,13 +18,13 @@ import { useState } from "react";
 
 export default function MyTimer() {
   // const [sessionLength, setSessionLength] = React.useState(10);
-
-  const [date, setDate] = useState(new Date());
-  const [expiryTimestamp, setExpiryTimestamp] = useState(
-    date.setSeconds(date.getSeconds() + 600)
+  const startingMinutes = 10;
+  const [displayMinutes, setDisplayMinutes] = useState(startingMinutes);
+  var date = new Date();
+  var expiryTimestamp = date.setSeconds(
+    date.getSeconds() + 60 * startingMinutes
   );
-  console.log("this is date: ", date);
-
+  console.log("ooops, just rerendered");
   const {
     seconds,
     minutes,
@@ -58,23 +58,18 @@ export default function MyTimer() {
           {minutes}:{seconds}
         </Text>
       </Flex>
-      <Text>X-minute session</Text>
+      <Text>{displayMinutes} minute session</Text>
       <Slider
         aria-label="slider-ex-1"
         min={5}
         max={60}
-        defaultValue={10}
+        defaultValue={startingMinutes}
         onChangeEnd={(val) => {
-          console.log("value: ", val);
-          setExpiryTimestamp(date.setSeconds(date.getSeconds() + 60 * val));
-          console.log(
-            "this is updated date: ",
-            date,
-            "which should be the same as expiryTimestamp:",
-            expiryTimestamp
-          );
+          date = new Date();
+          expiryTimestamp = date.setSeconds(date.getSeconds() + 60 * val);
           restart(expiryTimestamp, false);
         }}
+        onChange={(val) => setDisplayMinutes(val)}
       >
         <SliderTrack>
           <SliderFilledTrack />
