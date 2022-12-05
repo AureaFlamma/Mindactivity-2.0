@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
+
 import {
   Flex,
   Box,
@@ -54,7 +56,7 @@ export default function MyTimer() {
   }
 
   return (
-    <VStack bg="green" gap="10">
+    <VStack gap="10">
       <Flex
         boxSize={["250px", "350px"]}
         border="10px solid white"
@@ -84,10 +86,13 @@ export default function MyTimer() {
           }}
           onChange={(val) => setDisplayMinutes(val)}
         >
-          <SliderTrack>
-            <SliderFilledTrack />
+          <SliderTrack bg="whiteAlpha.500">
+            <SliderFilledTrack bg="white" />
           </SliderTrack>
-          <SliderThumb />
+          <SliderThumb
+            _focus={{ boxShadow: "none" }} //this overrides Chakra's default settings whereby the shadow persists for as long as the slider is in focus.
+            _hover={{ boxShadow: "0 0 0 5px #38B2AC80" }}
+          />
         </Slider>
       </VStack>
       <IconButton
