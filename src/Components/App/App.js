@@ -20,7 +20,7 @@ function App() {
           gap="10"
           fontFamily="Oswald, sans-serif"
         >
-          <Text fontSize={["3xl", "6xl"]} fontWeight="200">
+          <Text fontSize={["4xl", "6xl"]} fontWeight="200">
             Mindactivity
           </Text>
           <MyTimer />

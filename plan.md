@@ -26,12 +26,12 @@ Frontend:
 6. Backgrounds ✅
 7. Resize for mobile
 8. Refactor:
-   a) Get fonts out of App
-   b) newTimestamp helper
-   c) background helper
-   d) get rid of all unnecessary features
-   e) uninstall unnecessary packages
-   f) get rid of artifacts.
+   a) Get fonts out of App ✅
+   b) newTimestamp helper ✅
+   c) background helper ✅
+   d) get rid of all unnecessary features ✅
+   e) uninstall unnecessary packages ✅
+   f) get rid of artifacts. ✅
 9. Gong
 10. Ring animation
 
