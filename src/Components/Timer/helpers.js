@@ -8,7 +8,7 @@ export function getExpiryTimestamp(startingMinutes) {
   return expiryTimestamp;
 }
 
-export function countWithZero(num) {
+export function getCountWithZero(num) {
   if (num > 9) {
     return num;
   } else {

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
-import { getExpiryTimestamp, countWithZero } from "./helpers";
+import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 
 import {
   Flex,
@@ -48,7 +48,7 @@ export default function MyTimer() {
           fontSize={["90px", "100px"]}
           fontFamily={"de_valenciaregular, sans-serif"}
         >
-          {countWithZero(minutes)}:{countWithZero(seconds)}
+          {getCountWithZero(minutes)}:{getCountWithZero(seconds)}
         </Text>
       </Flex>
       <VStack width="75%">

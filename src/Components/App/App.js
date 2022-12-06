@@ -3,20 +3,9 @@ import React from "react";
 import { ChakraProvider, Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer";
 import { useState } from "react";
+import { useRandomBackground } from "./helpers";
 
 function App() {
-  var backgroundURLArr = [
-    `background_1.png`,
-    "background_2.png",
-    "background_3.png",
-    "background_4.png",
-  ];
-
-  function RandomBackgroundURL(arr) {
-    return `url(/backgroundLib/${arr[Math.floor(Math.random() * arr.length)]})`;
-  }
-  const [num, setNum] = useState(RandomBackgroundURL(backgroundURLArr));
-
   return (
     <>
       <ChakraProvider>
@@ -27,7 +16,7 @@ function App() {
           color="aliceblue"
           h="100vh"
           w="100vw"
-          bgImage={num}
+          bgImage={useRandomBackground()}
           gap="10"
           fontFamily="Oswald, sans-serif"
         >
