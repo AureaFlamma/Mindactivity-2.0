@@ -8,7 +8,9 @@ export function RandomBackground1() {
     "srcComponentsRandomBackground\backgroundLib\background_3.png",
     "srcComponentsRandomBackground\backgroundLib\background_4.png",
   ];
-  const [selectedPath, setSelectedPath] = useState("");
+  const [selectedPath, setSelectedPath] = useState(
+    backgroundPaths[Math.floor(Math.random() * backgroundPaths.length)]
+  );
   useEffect(() => {
     setSelectedPath(
       backgroundPaths[Math.floor(Math.random() * backgroundPaths.length)]

@@ -47,28 +47,18 @@ function App() {
   // console.log(currentBlog);
   // console.log(currentBlog.imgageSrc);
 
-  // console.log(RandomBackground1());
+  var backgroundURLArr = [
+    `background_1.png`,
+    "background_2.png",
+    "background_3.png",
+    "background_4.png",
+  ];
 
-  // const [background, setBackground] = useState("poop");
-
-  // useEffect(() => {
-  //   setBackground(RandomBackground2());
-  //   console.log(background);
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(RandomBackground2());
-  // }, []);
-  // console.log(RandomBackground1());
-  var exampleArr = [1, 2, 3, 4];
-  useEffect(() => {
-    let variable;
-    variable = exampleArr[Math.floor(Math.random() * exampleArr.length)];
-    console.log(variable);
-  }, []);
-
-  // 2. Update the breakpoints as key-value pairs
-  console.log();
+  function RandomBackgroundURL(arr) {
+    return `url(/backgroundLib/${arr[Math.floor(Math.random() * arr.length)]})`;
+  }
+  const [num, setNum] = useState(RandomBackgroundURL(backgroundURLArr));
+  console.log(num);
   return (
     <>
       <ChakraProvider>
@@ -79,8 +69,7 @@ function App() {
           color="aliceblue"
           h="100vh"
           w="100vw"
-          bgGradient="linear(to-br, #131224, #0c1445, #36306f ) "
-          // bgImage={RandomBackground()}
+          bgImage={num}
           gap="10"
           fontFamily="Oswald, sans-serif"
         >
