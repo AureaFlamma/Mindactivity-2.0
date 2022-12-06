@@ -1,15 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 
 @font-face {
-  font-family: "diner-obeseregular";
-  src: url("Diner-Obese-webfont.woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "de_valenciaregular";
-  src: url("De Valencia (beta)-webfont.woff");
+  src: url("fonts\\De-Valencia-webfont.woff");
   font-weight: normal;
   font-style: normal;
 }
