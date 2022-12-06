@@ -38,7 +38,7 @@ export default function MyTimer() {
   return (
     <VStack gap="10">
       <Flex
-        boxSize={["250px", "350px"]}
+        boxSize={["300px", "350px"]}
         border="10px solid white"
         borderRadius="full"
         align="center"
