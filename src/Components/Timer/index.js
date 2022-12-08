@@ -3,6 +3,9 @@ import React from "react";
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
+import useSound from "use-sound";
+
+import gongSound from "./start_end_gong.mp3";
 
 import {
   Text,
@@ -19,15 +22,17 @@ import { useState } from "react";
 
 export default function MyTimer() {
   // To change the default starting timer, change the below. It'll also update the slider anchor:
-  const startingMinutes = 10;
+  const startingMinutes = 1;
   //A separate state for display minutes is necessary as the timer hook doesn't give us a setMinutes function:
   const [maxMinutes, setMaxMinutes] = useState(startingMinutes);
   //This sets the initial timer:
   var expiryTimestamp = getExpiryTimestamp(startingMinutes);
+  //This is the hook for playing the gong sound:
+  const [playGong] = useSound(gongSound);
 
   const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
     expiryTimestamp,
-    onExpire: () => console.warn("onExpire called"),
+    onExpire: () => playGong(),
     autoStart: false,
   });
 
@@ -80,7 +85,14 @@ export default function MyTimer() {
         colorScheme="whiteAlpha"
         borderRadius="full"
         icon={isRunning ? <FaPause /> : <FaPlay />}
-        onClick={isRunning ? pause : resume}
+        onClick={
+          isRunning
+            ? pause
+            : () => {
+                playGong();
+                resume();
+              }
+        }
       ></IconButton>
     </VStack>
   );
