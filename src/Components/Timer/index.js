@@ -5,18 +5,13 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 
 import {
-  Flex,
-  Box,
   Text,
   IconButton,
-  ButtonGroup,
   VStack,
   Slider,
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  SliderMark,
-  Circle,
   CircularProgress,
   CircularProgressLabel,
 } from "@chakra-ui/react";
@@ -26,7 +21,7 @@ export default function MyTimer() {
   // To change the default starting timer, change the below. It'll also update the slider anchor:
   const startingMinutes = 10;
   //A separate state for display minutes is necessary as the timer hook doesn't give us a setMinutes function:
-  const [displayMinutes, setDisplayMinutes] = useState(startingMinutes);
+  const [maxMinutes, setMaxMinutes] = useState(startingMinutes);
   //This sets the initial timer:
   var expiryTimestamp = getExpiryTimestamp(startingMinutes);
 
@@ -36,20 +31,29 @@ export default function MyTimer() {
     autoStart: false,
   });
 
-  //This adds leading 0 to single-digit minutes/seconds, making them double-digit.
-
   return (
     <VStack gap="10">
-      <Circle size={["300px", "350px"]} border="10px solid white">
-        <Text
-          fontSize={["90px", "100px"]}
-          fontFamily={"de_valenciaregular, sans-serif"}
-        >
-          {getCountWithZero(minutes)}:{getCountWithZero(seconds)}
-        </Text>
-      </Circle>
+      <CircularProgress
+        size={["350px", "400px"]}
+        thickness="2px"
+        value={maxMinutes * 60 - (minutes * 60 + seconds)}
+        min={0}
+        max={maxMinutes * 60}
+        color="white"
+        trackColor="whiteAlpha.500"
+        capIsRound={true}
+      >
+        <CircularProgressLabel>
+          <Text
+            fontSize={["90px", "100px"]}
+            fontFamily={"de_valenciaregular, sans-serif"}
+          >
+            {getCountWithZero(minutes)}:{getCountWithZero(seconds)}
+          </Text>
+        </CircularProgressLabel>
+      </CircularProgress>
       <VStack width="75%">
-        <Text>{displayMinutes} minute session</Text>
+        <Text>{maxMinutes} minute session</Text>
         <Slider
           aria-label="slider-ex-1"
           min={5}
@@ -59,7 +63,7 @@ export default function MyTimer() {
           onChangeEnd={(val) => {
             restart(getExpiryTimestamp(val), false);
           }}
-          onChange={(val) => setDisplayMinutes(val)}
+          onChange={(val) => setMaxMinutes(val)}
         >
           <SliderTrack bg="whiteAlpha.500">
             <SliderFilledTrack bg="white" />
