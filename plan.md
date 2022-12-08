@@ -12,3 +12,37 @@
    d) end time
 
 ---
+
+Frontend:
+
+1. Space it out ✅
+2. Font- fix kerning
+3. Text in counter:
+   a) 2-digits on each side ✅
+4. Slider
+   a) text ✅
+   b) slider itself ✅
+5. button ✅
+6. Backgrounds ✅
+7. Resize for mobile ✅
+8. Refactor:
+   a) Get fonts out of App ✅
+   b) newTimestamp helper ✅
+   c) background helper ✅
+   d) get rid of all unnecessary features ✅
+   e) uninstall unnecessary packages ✅
+   f) get rid of artifacts. ✅
+9. Gong
+10. Ring animation
+
+Backend:
+
+1. Auth0
+2. Streak functionality
+
+---
+
+Wishlist:
+
+1. Debug the background feature- make it render only once. Also, refresh hooks.
+2. Add functionality for timers above 59 mins.

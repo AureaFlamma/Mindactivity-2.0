@@ -1,6 +1,9 @@
 import React from "react";
+
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { getExpiryTimestamp, getCountWithZero } from "./helpers";
+
 import {
   Flex,
   Box,
@@ -13,6 +16,9 @@ import {
   SliderFilledTrack,
   SliderThumb,
   SliderMark,
+  Circle,
+  CircularProgress,
+  CircularProgressLabel,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -22,63 +28,48 @@ export default function MyTimer() {
   //A separate state for display minutes is necessary as the timer hook doesn't give us a setMinutes function:
   const [displayMinutes, setDisplayMinutes] = useState(startingMinutes);
   //This sets the initial timer:
-  var date = new Date();
-  var expiryTimestamp = date.setSeconds(
-    date.getSeconds() + 60 * startingMinutes
-  );
-  const {
-    seconds,
-    minutes,
-    hours,
-    days,
-    isRunning,
-    start,
-    pause,
-    resume,
-    restart,
-  } = useTimer({
+  var expiryTimestamp = getExpiryTimestamp(startingMinutes);
+
+  const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
     expiryTimestamp,
     onExpire: () => console.warn("onExpire called"),
     autoStart: false,
   });
 
-  return (
-    <VStack>
-      {/* TODO: BoxSize? */}
-      <Flex
-        bg="red"
-        w={["200px", "300px"]}
-        h={["200px", "300px"]}
-        border="10px solid white"
-        borderRadius="full"
-        align="center"
-        justify={"center"}
-      >
-        {/* TODO: There may be a problem with single/dbl digits. Possibly needs spearste containers */}
-        <Text fontSize={["70px", "105px"]}>
-          {minutes}:{seconds}
-        </Text>
-      </Flex>
-      <Text>{displayMinutes} minute session</Text>
-      <Slider
-        aria-label="slider-ex-1"
-        min={5}
-        max={60}
-        defaultValue={startingMinutes}
-        //This sets the timer to the value selected by user.
-        onChangeEnd={(val) => {
-          date = new Date();
-          expiryTimestamp = date.setSeconds(date.getSeconds() + 60 * val);
-          restart(expiryTimestamp, false);
-        }}
-        onChange={(val) => setDisplayMinutes(val)}
-      >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
-      </Slider>
+  //This adds leading 0 to single-digit minutes/seconds, making them double-digit.
 
+  return (
+    <VStack gap="10">
+      <Circle size={["300px", "350px"]} border="10px solid white">
+        <Text
+          fontSize={["90px", "100px"]}
+          fontFamily={"de_valenciaregular, sans-serif"}
+        >
+          {getCountWithZero(minutes)}:{getCountWithZero(seconds)}
+        </Text>
+      </Circle>
+      <VStack width="75%">
+        <Text>{displayMinutes} minute session</Text>
+        <Slider
+          aria-label="slider-ex-1"
+          min={5}
+          max={59}
+          defaultValue={startingMinutes}
+          //This sets the timer to the value selected by user. False means the timer won't start as soon as user releases the draggable thumb.
+          onChangeEnd={(val) => {
+            restart(getExpiryTimestamp(val), false);
+          }}
+          onChange={(val) => setDisplayMinutes(val)}
+        >
+          <SliderTrack bg="whiteAlpha.500">
+            <SliderFilledTrack bg="white" />
+          </SliderTrack>
+          <SliderThumb
+            _focus={{ boxShadow: "none" }} //this overrides Chakra's default settings whereby the shadow persists for as long as the slider is in focus.
+            _hover={{ boxShadow: "0 0 0 5px #38B2AC80" }}
+          />
+        </Slider>
+      </VStack>
       <IconButton
         variant="solid"
         size="lg"
