@@ -1,5 +1,3 @@
-import React from "react";
-
 export function getExpiryTimestamp(startingMinutes) {
   var date = new Date();
   var expiryTimestamp = date.setSeconds(
