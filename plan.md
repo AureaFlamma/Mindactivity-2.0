@@ -37,9 +37,9 @@ Frontend:
 
 Frontend deploy cleanup:
 
-1. File system for assets
-2. slider thumb highlight
-3. Adjusting slider makes the ring go crazy.
+1. File system for assets ✅
+2. slider thumb highlight ✅
+3. Adjusting slider makes the ring go crazy. ✅
 
 Backend:
 
