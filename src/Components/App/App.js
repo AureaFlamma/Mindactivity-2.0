@@ -1,8 +1,6 @@
-import "./App.css";
 import React from "react";
 import { ChakraProvider, Text, Flex } from "@chakra-ui/react";
-import MyTimer from "../Timer";
-
+import MyTimer from "../Timer/Timer.js";
 import { useRandomBackground } from "./helpers";
 
 function App() {
@@ -16,7 +14,7 @@ function App() {
           color="aliceblue"
           h="100vh"
           w="100vw"
-          bgImage={useRandomBackground()}
+          bgImage={useRandomBackground}
           gap="10"
           fontFamily="Oswald, sans-serif"
         >

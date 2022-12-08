@@ -1,16 +1,17 @@
 import { useState } from "react";
+import background1 from "../../assets/images/background_1.png";
+import background2 from "../../assets/images/background_2.png";
+import background3 from "../../assets/images/background_3.png";
+import background4 from "../../assets/images/background_4.png";
 
 export function useRandomBackground() {
-  var backgroundURLArr = [
-    `background_1.png`,
-    "background_2.png",
-    "background_3.png",
-    "background_4.png",
-  ];
-  const [num, setNum] = useState(RandomBackgroundURL(backgroundURLArr));
+  var backgroundsArr = [background1, background2, background3, background4];
+  const [selectedBackground, setSelectedBackground] = useState(
+    RandomBackgroundURL(backgroundsArr)
+  );
 
   function RandomBackgroundURL(arr) {
-    return `url(/backgroundLib/${arr[Math.floor(Math.random() * arr.length)]})`;
+    return arr[Math.floor(Math.random() * arr.length)];
   }
-  return num;
+  return selectedBackground;
 }

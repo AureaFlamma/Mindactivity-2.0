@@ -1,12 +1,9 @@
 import React from "react";
-
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 import useSound from "use-sound";
-
-import gongSound from "./start_end_gong.mp3";
-
+import gongSound from "../../assets/audio/start_end_gong.mp3";
 import {
   Text,
   IconButton,
