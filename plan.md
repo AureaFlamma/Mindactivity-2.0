@@ -32,8 +32,14 @@ Frontend:
    d) get rid of all unnecessary features ✅
    e) uninstall unnecessary packages ✅
    f) get rid of artifacts. ✅
-9. Gong
-10. Ring animation
+9. Gong ✅
+10. Ring animation ✅
+
+Frontend deploy cleanup:
+
+1. File system for assets ✅
+2. slider thumb highlight ✅
+3. Adjusting slider makes the ring go crazy. ✅
 
 Backend:
 

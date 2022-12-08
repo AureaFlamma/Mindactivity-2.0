@@ -1,12 +1,9 @@
 import React from "react";
-
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 import useSound from "use-sound";
-
-import gongSound from "./start_end_gong.mp3";
-
+import gongSound from "../../assets/audio/start_end_gong.mp3";
 import {
   Text,
   IconButton,
@@ -22,8 +19,10 @@ import { useState } from "react";
 
 export default function MyTimer() {
   // To change the default starting timer, change the below. It'll also update the slider anchor:
-  const startingMinutes = 1;
-  //A separate state for display minutes is necessary as the timer hook doesn't give us a setMinutes function:
+  const startingMinutes = 10;
+  //This is the minutes count as displayed above the slider:
+  const [displayMinutes, setDisplayMinutes] = useState(startingMinutes);
+  //This is the max minutes count, used for the ring animation:
   const [maxMinutes, setMaxMinutes] = useState(startingMinutes);
   //This sets the initial timer:
   var expiryTimestamp = getExpiryTimestamp(startingMinutes);
@@ -58,7 +57,7 @@ export default function MyTimer() {
         </CircularProgressLabel>
       </CircularProgress>
       <VStack width="75%">
-        <Text>{maxMinutes} minute session</Text>
+        <Text>{displayMinutes} minute session</Text>
         <Slider
           aria-label="slider-ex-1"
           min={5}
@@ -67,8 +66,9 @@ export default function MyTimer() {
           //This sets the timer to the value selected by user. False means the timer won't start as soon as user releases the draggable thumb.
           onChangeEnd={(val) => {
             restart(getExpiryTimestamp(val), false);
+            setMaxMinutes(val);
           }}
-          onChange={(val) => setMaxMinutes(val)}
+          onChange={(val) => setDisplayMinutes(val)}
         >
           <SliderTrack bg="whiteAlpha.500">
             <SliderFilledTrack bg="white" />
