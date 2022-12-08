@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { ChakraProvider, Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer";
-import { useState } from "react";
+
 import { useRandomBackground } from "./helpers";
 
 function App() {
