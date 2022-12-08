@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+
 import { useTimer } from "react-timer-hook";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
@@ -16,6 +16,9 @@ import {
   SliderFilledTrack,
   SliderThumb,
   SliderMark,
+  Circle,
+  CircularProgress,
+  CircularProgressLabel,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -37,20 +40,14 @@ export default function MyTimer() {
 
   return (
     <VStack gap="10">
-      <Flex
-        boxSize={["300px", "350px"]}
-        border="10px solid white"
-        borderRadius="full"
-        align="center"
-        justify={"center"}
-      >
+      <Circle size={["300px", "350px"]} border="10px solid white">
         <Text
           fontSize={["90px", "100px"]}
           fontFamily={"de_valenciaregular, sans-serif"}
         >
           {getCountWithZero(minutes)}:{getCountWithZero(seconds)}
         </Text>
-      </Flex>
+      </Circle>
       <VStack width="75%">
         <Text>{displayMinutes} minute session</Text>
         <Slider

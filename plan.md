@@ -24,7 +24,7 @@ Frontend:
    b) slider itself ✅
 5. button ✅
 6. Backgrounds ✅
-7. Resize for mobile
+7. Resize for mobile ✅
 8. Refactor:
    a) Get fonts out of App ✅
    b) newTimestamp helper ✅
