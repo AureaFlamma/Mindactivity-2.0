@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "de_valenciaregular";
-  src: url(".\\assets\\fonts\\de-valencia-webfont.woff");
+  src: url("assets\\fonts\\de-valencia-webfont.woff");
   font-weight: normal;
   font-style: normal;
 }
