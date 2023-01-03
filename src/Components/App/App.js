@@ -1,9 +1,11 @@
 import React from "react";
 import { Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer/Timer.js";
-import { useRandomBackground } from "./helpers";
+import { useRandomBackground } from "./AppHelpers/useRandomBackground.js";
+import getToday from "./AppHelpers/getToday.js";
 
 function App() {
+  console.log(getToday());
   return (
     <>
       <Flex
@@ -20,6 +22,7 @@ function App() {
         <Text fontSize={["4xl", "6xl"]} fontWeight="200">
           Mindactivity
         </Text>
+
         <MyTimer />
       </Flex>
     </>
