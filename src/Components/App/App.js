@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Button, Square } from "@chakra-ui/react";
+import { Text, Flex, Button, Circle, HStack } from "@chakra-ui/react";
 import MyTimer from "../Timer/Timer.js";
 import { useRandomBackground } from "./AppHelpers/useRandomBackground.js";
 import getToday from "./AppHelpers/getToday.js";
@@ -36,9 +36,17 @@ function App() {
           {" "}
           Send request{" "}
         </Button>
-        {datesArr.map((element, key) => (
-          <Square size="40px" bg="purple.700" color="white" key={key}></Square>
-        ))}
+        <HStack gap="1">
+          {datesArr.map((element, key) => (
+            <Circle
+              size="20px"
+              bg="whiteAlpha.800"
+              color="white"
+              shadow="0 0 3px 2px RGBA(255, 255, 255, 0.80)" //This is the colour corresponding to Chakra's WhiteAlpha 800
+              key={key}
+            />
+          ))}
+        </HStack>
       </Flex>
     </>
   );
