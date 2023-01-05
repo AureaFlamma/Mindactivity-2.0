@@ -1,11 +1,12 @@
 import React from "react";
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, Button } from "@chakra-ui/react";
 import MyTimer from "../Timer/Timer.js";
 import { useRandomBackground } from "./AppHelpers/useRandomBackground.js";
 import getToday from "./AppHelpers/getToday.js";
+import sendRequest from "./AppHelpers/sendRequest.js";
 
 function App() {
-  console.log(getToday());
+  // console.log(getToday());
   return (
     <>
       <Flex
@@ -24,6 +25,15 @@ function App() {
         </Text>
 
         <MyTimer />
+        <Button
+          colorScheme={"BlackAlpha"}
+          onClick={() => {
+            sendRequest({ nameDay: "peepee" }, "localhost:3000/boobs");
+          }}
+        >
+          {" "}
+          Send request{" "}
+        </Button>
       </Flex>
     </>
   );
