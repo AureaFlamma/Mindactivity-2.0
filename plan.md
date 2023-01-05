@@ -54,3 +54,11 @@ Wishlist:
 
 1. Debug the background feature- make it render only once. Also, refresh hooks.
 2. Add functionality for timers above 59 mins.
+
+---
+
+Streak feature:
+
+1. Get it to display
+2. Remove duplicates
+3. functionality for missed days.
