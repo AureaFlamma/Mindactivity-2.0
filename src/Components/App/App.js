@@ -28,7 +28,7 @@ function App() {
         <Button
           colorScheme={"BlackAlpha"}
           onClick={() => {
-            sendRequest({ nameDay: "peepee" }, "localhost:3000/boobs");
+            sendRequest(getToday(), "http://localhost:3000/boobs");
           }}
         >
           {" "}
