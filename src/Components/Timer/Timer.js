@@ -4,7 +4,7 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 import useSound from "use-sound";
 import gongSound from "../../assets/audio/start_end_gong.mp3";
-import sendRequest from "../App/AppHelpers/sendRequest";
+import submitTimestamps from "../fetchData";
 import getToday from "../App/AppHelpers/getToday";
 import {
   Text,
@@ -35,7 +35,7 @@ export default function MyTimer() {
     expiryTimestamp,
     onExpire: () => {
       playGong();
-      sendRequest(getToday(), "http://localhost:3000/boobs");
+      submitTimestamps("POST", "http://localhost:3000/boobs", getToday());
     },
     autoStart: false,
   });

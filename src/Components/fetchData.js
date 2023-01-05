@@ -1,6 +1,6 @@
-export default async function sendRequest(bodyObj, url) {
+export default async function fetchData(method, url, bodyObj) {
   const settings = {
-    method: "POST",
+    method: method,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
