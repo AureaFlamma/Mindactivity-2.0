@@ -8,7 +8,7 @@ export default function getToday() {
     day: formatDate({ day: "numeric" }),
     month: formatDate({ month: "long" }),
     year: formatDate({ year: "numeric" }),
-    date: today,
+    date: today.toString(),
   };
 
   return todayFormatted;

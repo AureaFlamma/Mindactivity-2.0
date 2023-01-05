@@ -4,6 +4,8 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 import useSound from "use-sound";
 import gongSound from "../../assets/audio/start_end_gong.mp3";
+import sendRequest from "../App/AppHelpers/sendRequest";
+import getToday from "../App/AppHelpers/getToday";
 import {
   Text,
   IconButton,
@@ -19,7 +21,7 @@ import { useState } from "react";
 
 export default function MyTimer() {
   // To change the default starting timer, change the below. It'll also update the slider anchor:
-  const startingMinutes = 10;
+  const startingMinutes = 0.5;
   //This is the minutes count as displayed above the slider:
   const [displayMinutes, setDisplayMinutes] = useState(startingMinutes);
   //This is the max minutes count, used for the ring animation:
@@ -31,7 +33,10 @@ export default function MyTimer() {
 
   const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
     expiryTimestamp,
-    onExpire: () => playGong(),
+    onExpire: () => {
+      playGong();
+      sendRequest(getToday(), "http://localhost:3000/boobs");
+    },
     autoStart: false,
   });
 
