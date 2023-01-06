@@ -8,9 +8,11 @@ import {
   Box,
   Wrap,
 } from "@chakra-ui/react";
+import checkIfBroken from "./SreakHelpers/checkIfBroken.js";
 import getTimestamps from "../fetchData.js";
 
 const StreakCounter = () => {
+  //TODO: This could be a custom hook
   const [timestampsArr, setTimestampsArr] = useState([]);
   //The reason it's nested like this is because otherwise clean-up function would never get called. I don't have a clean-up function but best practice is best practice
   useEffect(() => {
@@ -22,6 +24,8 @@ const StreakCounter = () => {
       setTimestampsArr(timestamps);
     })();
   }, []);
+
+  console.log(checkIfBroken([{ date: "05/01/2023" }]));
 
   return (
     <VStack w={["100%", "30%"]}>
@@ -35,33 +39,7 @@ const StreakCounter = () => {
       <Wrap spacing="8px" w="100%">
         {timestampsArr.map((element, key) => (
           <>
-            <Box
-              h="15px"
-              w="5px"
-              bg="white"
-              rounded={"full"}
-              // color="white"
-              // shadow="0 0 2px 2px RGBA(255, 255, 255, 0.40)" //This is the colour corresponding to Chakra's WhiteAlpha 400
-              key={key}
-            />
-            {/* <Box
-              h="15px"
-              w="3px"
-              bg="white"
-              rounded={"full"}
-              // color="white"
-              // shadow="0 0 2px 2px RGBA(255, 255, 255, 0.40)" //This is the colour corresponding to Chakra's WhiteAlpha 400
-              key={key}
-            />
-            <Box
-              h="15px"
-              w="5px"
-              bg="white"
-              rounded={"full"}
-              // color="white"
-              // shadow="0 0 2px 2px RGBA(255, 255, 255, 0.40)" //This is the colour corresponding to Chakra's WhiteAlpha 400
-              key={key}
-            /> */}
+            <Box h="15px" w="5px" bg="white" rounded={"full"} key={key} />
           </>
         ))}
       </Wrap>

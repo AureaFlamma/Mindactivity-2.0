@@ -1,5 +1,5 @@
-export default function getToday() {
-  const today = new Date();
+export default function getToday(offset) {
+  const today = new Date(offset);
   function formatDate(options) {
     return Intl.DateTimeFormat("en-GB", options).format(today);
   }
@@ -8,7 +8,7 @@ export default function getToday() {
     day: formatDate({ day: "numeric" }),
     month: formatDate({ month: "long" }),
     year: formatDate({ year: "numeric" }),
-    date: today.toString(),
+    date: formatDate(),
   };
 
   return todayFormatted;
