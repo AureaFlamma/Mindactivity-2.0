@@ -35,7 +35,11 @@ export default function MyTimer() {
     expiryTimestamp,
     onExpire: () => {
       playGong();
-      submitTimestamps("POST", "http://localhost:3000/boobs", getToday());
+      submitTimestamps(
+        "POST",
+        "http://localhost:3000/boobs",
+        getToday(Date.now())
+      );
     },
     autoStart: false,
   });

@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import checkIfBroken from "./SreakHelpers/checkIfBroken.js";
 import getTimestamps from "../fetchData.js";
+import checkIfRepeats from "./SreakHelpers/checkIfRepeats.js";
 
 const StreakCounter = () => {
   //TODO: This could be a custom hook
@@ -21,11 +22,9 @@ const StreakCounter = () => {
         "GET",
         "http://localhost:3000/boobs"
       );
-      setTimestampsArr(timestamps);
+      setTimestampsArr(checkIfRepeats(checkIfBroken(timestamps)));
     })();
   }, []);
-
-  console.log(checkIfBroken([{ date: "05/01/2023" }]));
 
   return (
     <VStack w={["100%", "30%"]}>
