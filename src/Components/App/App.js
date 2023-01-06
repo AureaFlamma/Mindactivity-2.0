@@ -14,7 +14,7 @@ function App() {
         direction={"column"}
         p="3"
         color="aliceblue"
-        h="100vh"
+        minH="100vh"
         w="100vw"
         bgImage={useRandomBackground}
         gap="10"
