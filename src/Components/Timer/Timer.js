@@ -5,7 +5,7 @@ import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 import useSound from "use-sound";
 import gongSound from "../../assets/audio/start_end_gong.mp3";
 import submitTimestamps from "../fetchData";
-import getToday from "../App/AppHelpers/getToday";
+import getToday from "../getDate";
 import {
   Text,
   IconButton,

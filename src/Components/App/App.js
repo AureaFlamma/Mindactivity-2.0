@@ -1,9 +1,7 @@
-import { React, useState, useEffect } from "react";
-import { Text, Flex, Button, Circle, HStack } from "@chakra-ui/react";
+import { React } from "react";
+import { Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer/Timer.js";
 import { useRandomBackground } from "./AppHelpers/useRandomBackground.js";
-import getToday from "./AppHelpers/getToday.js";
-import sendRequest from "../fetchData.js";
 import StreakCounter from "../StreakCounter/Streak.js";
 
 function App() {
@@ -25,15 +23,6 @@ function App() {
         </Text>
 
         <MyTimer />
-        {/* <Button
-          colorScheme={"BlackAlpha"}
-          onClick={() => {
-            sendRequest(getToday(), "http://localhost:3000/boobs");
-          }}
-        >
-          {" "}
-          Send request{" "}
-        </Button> */}
         <StreakCounter />
       </Flex>
     </>

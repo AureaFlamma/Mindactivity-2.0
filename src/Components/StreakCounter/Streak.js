@@ -11,6 +11,7 @@ import {
 import checkIfBroken from "./SreakHelpers/checkIfBroken.js";
 import getTimestamps from "../fetchData.js";
 import checkIfRepeats from "./SreakHelpers/checkIfRepeats.js";
+import useTimestamps from "./SreakHelpers/useTimestamps.js";
 
 const StreakCounter = () => {
   //TODO: This could be a custom hook
@@ -22,10 +23,11 @@ const StreakCounter = () => {
         "GET",
         "http://localhost:3000/boobs"
       );
-      setTimestampsArr(checkIfRepeats(checkIfBroken(timestamps)));
+      var cleanedUpTimestamps = checkIfRepeats(checkIfBroken(timestamps));
+      setTimestampsArr(cleanedUpTimestamps);
     })();
   }, []);
-
+  // const [timestampsArr] = useTimestamps("http://localhost:3000/boobs");
   return (
     <VStack w={["100%", "30%"]}>
       <HStack>

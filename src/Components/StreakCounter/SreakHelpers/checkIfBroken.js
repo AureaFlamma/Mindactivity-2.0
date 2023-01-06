@@ -1,5 +1,5 @@
 import React from "react";
-import getToday from "../../App/AppHelpers/getToday";
+import getToday from "../../getDate";
 
 const checkIfBroken = (timestampsArr) => {
   const today = getToday(Date.now()).date;

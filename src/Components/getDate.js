@@ -1,9 +1,9 @@
-export default function getToday(offset) {
-  const today = new Date(offset);
+export default function getDate(offset) {
+  const date = new Date(offset);
   function formatDate(options) {
-    return Intl.DateTimeFormat("en-GB", options).format(today);
+    return Intl.DateTimeFormat("en-GB", options).format(date);
   }
-  const todayFormatted = {
+  const dateFormatted = {
     dayName: formatDate({ weekday: "long" }),
     day: formatDate({ day: "numeric" }),
     month: formatDate({ month: "long" }),
@@ -11,5 +11,5 @@ export default function getToday(offset) {
     date: formatDate(),
   };
 
-  return todayFormatted;
+  return dateFormatted;
 }
