@@ -11,7 +11,6 @@ import {
 import checkIfBroken from "./SreakHelpers/checkIfBroken.js";
 import getTimestamps from "../fetchData.js";
 import checkIfRepeats from "./SreakHelpers/checkIfRepeats.js";
-import useTimestamps from "./SreakHelpers/useTimestamps.js";
 
 const StreakCounter = () => {
   // TODO: This could be a custom hook
