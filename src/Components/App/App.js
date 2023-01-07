@@ -1,7 +1,8 @@
-import React from "react";
+import { React } from "react";
 import { Text, Flex } from "@chakra-ui/react";
 import MyTimer from "../Timer/Timer.js";
-import { useRandomBackground } from "./helpers";
+import { useRandomBackground } from "./AppHelpers/useRandomBackground.js";
+import StreakCounter from "../StreakCounter/Streak.js";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         direction={"column"}
         p="3"
         color="aliceblue"
-        h="100vh"
+        minH="100vh"
         w="100vw"
         bgImage={useRandomBackground}
         gap="10"
@@ -20,7 +21,9 @@ function App() {
         <Text fontSize={["4xl", "6xl"]} fontWeight="200">
           Mindactivity
         </Text>
+
         <MyTimer />
+        <StreakCounter />
       </Flex>
     </>
   );
