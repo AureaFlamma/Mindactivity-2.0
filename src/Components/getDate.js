@@ -1,4 +1,5 @@
 export default function getDate(offset) {
+  //Offset is the number of miliseconds since the epoch. For today's date, put Date.now().
   const date = new Date(offset);
   function formatDate(options) {
     return Intl.DateTimeFormat("en-GB", options).format(date);

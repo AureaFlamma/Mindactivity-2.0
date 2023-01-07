@@ -14,9 +14,9 @@ import checkIfRepeats from "./SreakHelpers/checkIfRepeats.js";
 import useTimestamps from "./SreakHelpers/useTimestamps.js";
 
 const StreakCounter = () => {
-  //TODO: This could be a custom hook
+  // TODO: This could be a custom hook
   const [timestampsArr, setTimestampsArr] = useState([]);
-  //The reason it's nested like this is because otherwise clean-up function would never get called. I don't have a clean-up function but best practice is best practice
+  // The reason it's nested like this is because otherwise clean-up function would never get called. I don't have a clean-up function but best practice is best practice
   useEffect(() => {
     (async () => {
       const timestamps = await getTimestamps(
@@ -27,7 +27,7 @@ const StreakCounter = () => {
       setTimestampsArr(cleanedUpTimestamps);
     })();
   }, []);
-  // const [timestampsArr] = useTimestamps("http://localhost:3000/boobs");
+
   return (
     <VStack w={["100%", "30%"]}>
       <HStack>
