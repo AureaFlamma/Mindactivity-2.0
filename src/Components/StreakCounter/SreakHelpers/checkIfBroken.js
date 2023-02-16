@@ -5,11 +5,17 @@ const checkIfBroken = (timestampsArr) => {
   const twentyFourHours = 24 * 60 * 60 * 1000
   const today = getDate(Date.now()).date;
   const yesterday = getDate(Date.now() - twentyFourHours).date;
+  let cleanedUpTimestampsArr = [];
 
   //If last entry in timestamp array isn't today or yesterday, it empties the array before returning. The length > 0 condition is there so that code doesn't break if array is empty.
   for (let i = timestampsArr.length - 1; i >= 0 ; i--){
-    // if (timestampsArr[i] === getDate(timestampsArr[i - 1].offset + twentyFourHours).date)
-    console.log(timestampsArr[i], timestampsArr[i-1])
+    if (timestampsArr[i] === getDate(timestampsArr[i - 1].offset + twentyFourHours).date){
+cleanedUpTimestampsArr.push(timestampsArr[i])
+    } else {
+      cleanedUpTimestampsArr.push(timestampsArr[i]);
+      i = -1;
+    }
+    // console.log(timestampsArr[i], timestampsArr[i-1])
   }
   if (
     timestampsArr.length > 0 &&

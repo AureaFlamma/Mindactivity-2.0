@@ -10,7 +10,8 @@ export default function getDate(offset) {
     month: formatDate({ month: "long" }),
     year: formatDate({ year: "numeric" }),
     date: formatDate(),
+    miliseconds: date.getTime()
   };
-
+// console.log("miliseconds here: ", dateFormatted.miliseconds)s
   return dateFormatted;
 }
