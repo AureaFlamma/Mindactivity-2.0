@@ -5,7 +5,7 @@ import { getExpiryTimestamp, getCountWithZero } from "./helpers";
 import useSound from "use-sound";
 import gongSound from "../../assets/audio/start_end_gong.mp3";
 import submitTimestamps from "../fetchData";
-import getToday from "../getDate";
+import getDate from "../getDate";
 import {
   Text,
   IconButton,
@@ -38,7 +38,8 @@ export default function MyTimer() {
       submitTimestamps(
         "POST",
         "http://localhost:3000/boobs",
-        getToday(Date.now())
+        //Date.now() returns number of miliseconds since the epoch. when getDate is called with it as an argument, it returns today's date.
+        getDate(Date.now())
       );
     },
     autoStart: false,

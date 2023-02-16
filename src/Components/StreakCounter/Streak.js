@@ -22,8 +22,10 @@ const StreakCounter = () => {
         "GET",
         "http://localhost:3000/boobs"
       );
-      var cleanedUpTimestamps = checkIfRepeats(checkIfBroken(timestamps));
+      var cleanedUpTimestamps = checkIfBroken(checkIfRepeats(timestamps));
+      
       setTimestampsArr(cleanedUpTimestamps);
+      console.log(cleanedUpTimestamps);
     })();
   }, []);
 
